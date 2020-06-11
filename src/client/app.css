@@ -6,3 +6,30 @@ body {
   text-align: center;
   margin: auto;
 }
+
+.form-label {
+  font-size: 12px;
+}
+
+footer {
+  text-align: center;
+}
+
+.App {
+  text-align: left;
+}
+
+.App .ant-layout-header {
+  text-align: center;
+  height: 88px;
+  background: #4b5320;
+  padding: 10px 10px;
+}
+
+.App .ant-steps {
+  border-radius: 2px;
+  background-color: white;
+  padding: 42px 24px 42px;
+  color: rgba(0,0,0,.85);
+  border-bottom: 1px solid #f0f0f0;
+}

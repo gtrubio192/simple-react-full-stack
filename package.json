@@ -13,8 +13,12 @@
   "author": "Sandeep Raveesh",
   "license": "ISC",
   "dependencies": {
+    "antd": "^4.3.3",
+    "axios": "^0.19.2",
     "babel-polyfill": "^6.26.0",
+    "dotenv": "^8.2.0",
     "express": "^4.16.3",
+    "google-distance-matrix": "^1.1.1",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
   },
