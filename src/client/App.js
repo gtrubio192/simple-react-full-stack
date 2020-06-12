@@ -120,7 +120,7 @@ export default class App extends Component {
   }
 
   handleModalOk = () => {
-    console.log('user closed modal...')
+    console.log('user closed modal...  ')
     this.setState({ showModal: false });
   }
 
