@@ -153,7 +153,7 @@ export default class App extends Component {
   }
 
   calculateTotalCost = () => {
-    let totalPrice = this.calculateDeliveryRate() + this.getContainerCostAtHub()
+    let totalPrice = this.calculateDeliveryRate() + this.getContainerCostAtHub()*this.state.quantity
     this.setState({
       totalPrice,
       showModal: true

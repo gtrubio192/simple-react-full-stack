@@ -24,7 +24,7 @@ const QuoteModal = (props) => {
             </Button>,
           ]}
         >
-          <p>Container Cost: {totalPrice}</p>
+          <p>Total Cost: {totalPrice}</p>
           <p>Shipping Cost: {shippingCost}</p>
           <p>Delivering from {deliveryHub}</p>
       </Modal>
