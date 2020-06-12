@@ -3,7 +3,7 @@ import { Modal, Button } from 'antd';
 
 const QuoteModal = (props) => {
 
-  let { containerCost, shippingCost, deliveryHub, container } = props.details
+  let { totalPrice, shippingCost, deliveryHub, container } = props.details
   const handleOk = ( ) => {
     props.handleOk();
   };
@@ -24,7 +24,7 @@ const QuoteModal = (props) => {
             </Button>,
           ]}
         >
-          <p>Container Cost: {containerCost}</p>
+          <p>Container Cost: {totalPrice}</p>
           <p>Shipping Cost: {shippingCost}</p>
           <p>Delivering from {deliveryHub}</p>
       </Modal>

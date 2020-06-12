@@ -43,6 +43,10 @@ export default class App extends Component {
       "40_standard_used": "40' Standard Used", 
       "40_highCube_used": "40' High Cube Used"
     }
+
+    this.hubPrices = {
+
+    }
   }
 
   componentDidMount() {
@@ -89,7 +93,7 @@ export default class App extends Component {
 
     this.setState({
       shortestRoute: first,
-     }, this.calculateDeliveryRate);
+     }, this.calculateTotalCost);
   }
 
   calculateDeliveryRate = () => {
@@ -97,15 +101,63 @@ export default class App extends Component {
     if(shortestRoute <= 25) {
       this.setState({
         shippingCost: 0,
-        showModal: true
-      })
+      });
+      return 0;
     }
     else {
       this.setState({
-        shippingCost: (shortestRoute - 25)*4,
-        showModal: true
+        shippingCost: (shortestRoute - 25)*3,
       })
+      return (shortestRoute - 25)*3
     }
+  }
+
+  getContainerCostAtHub = () => {
+    const hubPrices = {
+      "Creedmoor, TX 78610, USA": {
+        "20_standard_new": "3571",
+        "20_highCube_new": "4429",
+        "40_standard_new": "5601",
+        "40_highCube_new": "6000",
+        "20_standard_used": "2000",
+        "20_highCube_used":  "-1",
+        "40_standard_used": "2714",
+        "40_highCube_used": "2857",
+      },
+      "Houston, TX 77049, USA": {
+        "20_standard_new": "3571",
+        "20_highCube_new": "4429",
+        "40_standard_new": "5601",
+        "40_highCube_new": "6000",
+        "20_standard_used": "1714",
+        "20_highCube_used":  "-1",
+        "40_standard_used": "2143",
+        "40_highCube_used": "2286",
+      },
+      "Dallas, TX 75216, USA": {
+
+      },
+      "Denver, CO 80216, USA": { 
+
+      },
+      "Von Ormy, TX 78073, USA": {
+
+      },
+      "Obetz, OH 43207, USA": {
+
+      } 
+    }
+
+    return hubPrices[this.state.shortestRoute.hub][this.state.container]
+
+  }
+
+  calculateTotalCost = () => {
+    let totalPrice = this.calculateDeliveryRate() + this.getContainerCostAtHub()
+    this.setState({
+      totalPrice,
+      showModal: true
+    })
   }
 
 
@@ -120,7 +172,7 @@ export default class App extends Component {
   }
 
   handleModalOk = () => {
-    console.log('user closed modal...  ')
+    console.log('user closed modal... ')
     this.setState({ showModal: false });
   }
 
@@ -133,19 +185,16 @@ export default class App extends Component {
   }
 
   render() {
-    const Distances = () => {
-      return (
-        <div>DISTANCES ARE...</div>
-      )
-    }
 
     let mockDetails = {
-      containerCost: "6666",
+      totalPrice: this.state.totalPrice,
       shippingCost: this.state.shippingCost,
       deliveryHub: this.state.shortestRoute.hub,
       container: this.containers[this.state.container]
     };
 
+
+    
 
     return (
       <div className="App">

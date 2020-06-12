@@ -22,7 +22,7 @@ const formPartOne = (props) => {
                 <Input type="number" max={99999}/>
               </Form.Item>
               <span className="form-label">Container Size</span>
-              {/* <Form.Item name="Size" rules={[{ required: true }]}>
+              <Form.Item name="Size" rules={[{ required: true }]}>
                 <Select
                   allowClear
                 >
@@ -39,7 +39,7 @@ const formPartOne = (props) => {
               <span className="form-label">Quantity</span>
               <Form.Item name="Quantity" rules={[{ required: true }]}>
                 <Input type="number"/>
-              </Form.Item> */}
+              </Form.Item>
               <Form.Item >
                 <Button type="primary" htmlType="submit">
                   Get Quote
